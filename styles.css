@@ -1,0 +1,308 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* 主内容区域 */
+.main-content {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 30px 4fr 30px 1fr;
+    grid-template-columns: 1fr 4fr 1fr; /* 1/6 : 4/6 : 1/6 比例 */
+    gap: 30px;
+    -ms-grid-row-align: start;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.config-panel {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.preview-area {
+    -ms-grid-column: 3;
+    grid-column: 2;
+    position: relative;
+    z-index: 2;
+}
+
+.search-panel {
+    -ms-grid-column: 5;
+    grid-column: 3;
+    position: relative;
+    z-index: 2;
+}
+
+/* 配置面板样式 */
+.config-panel, .search-panel {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+.config-section {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.config-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.config-section h2 {
+    color: #34495e;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* 表单组样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* 输入控件样式 */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.form-group input[type="color"]:hover {
+    transform: scale(1.02);
+}
+
+/* 数值显示样式 */
+#line-width-value,
+#grid-size-value {
+    display: inline-block;
+    background-color: #f0f4f8;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #3498db;
+    font-weight: 500;
+}
+
+/* 按钮样式 */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 预览区域样式 */
+.preview-area {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    overflow: auto;
+    max-height: calc(100vh - 100px);
+}
+
+.preview-container h2 {
+    color: #34495e;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.preview-wrapper {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 600px;
+    overflow: auto;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#preview-svg {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 添加针对A3纸张的特殊样式 */
+.preview-wrapper {
+    min-height: 600px;
+    overflow: auto;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .main-content {
+        display: block;
+        /* 降级为块级显示以提高兼容性 */
+    }
+    
+    .config-panel {
+        position: relative;
+        max-height: none;
+        margin-bottom: 20px;
+    }
+    
+    .search-panel {
+        position: relative;
+        max-height: none;
+        margin-bottom: 20px;
+    }
+    
+    .preview-area {
+        /* 保持默认顺序 */
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        margin-bottom: 20px;
+        padding: 15px 0;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .config-panel,
+    .search-panel,
+    .preview-area {
+        padding: 20px;
+    }
+    
+    .form-row {
+        display: block;
+    }
+    
+    .form-row .form-group {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .form-row .form-group:last-child {
+        margin-bottom: 0;
+    }
+}

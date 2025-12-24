@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉语拼音作业纸生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>汉语拼音作业纸生成器</h1>
+        </header>
+        
+        <main class="main-content">
+            <!-- 左侧配置面板 -->
+            <aside class="config-panel">
+                <div class="config-section">
+                    <h2>纸张配置</h2>
+                    
+                    <div class="form-group">
+                        <label for="paper-type">纸张类型</label>
+                        <select id="paper-type" class="w-full p-2 border rounded-md">
+                            <option value="lined">横线纸</option>
+                            <option value="pinyin_paper" selected>汉语拼音作业纸</option>
+                            <option value="vertical_lined">竖线纸</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paper-size">纸张尺寸</label>
+                        <select id="paper-size" class="w-full p-2 border rounded-md">
+                            <option value="a4" selected>A4 (210mm × 297mm)</option>
+                            <option value="letter">Letter (216mm × 279mm)</option>
+                            <option value="a3">A3 (297mm × 420mm)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="config-section">
+                    <h2>线条配置</h2>
+                    
+                    <div class="form-group">
+                        <label for="line-color">线条颜色</label>
+                        <input type="color" id="line-color" value="#ff6b6b" class="w-full h-10 rounded-md cursor-pointer">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="line-width">线条粗细 (px)</label>
+                        <input type="range" id="line-width" min="0.1" max="2" step="0.1" value="0.5" class="w-full">
+                        <span id="line-width-value" class="text-sm text-gray-600">0.5</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="line-style">线条样式</label>
+                        <select id="line-style" class="w-full p-2 border rounded-md">
+                            <option value="solid" selected>实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点线</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="config-section">
+                    <h2>拼音田字格配置</h2>
+                    
+                    <div class="form-group">
+                        <label for="grid-size">田字格大小 (mm)</label>
+                        <input type="range" id="grid-size" min="10" max="50" step="1" value="20" class="w-full">
+                        <span id="grid-size-value" class="text-sm text-gray-600">20</span>
+                    </div>
+                </div>
+                
+                <div class="config-section">
+                    <h2>边距设置 (mm)</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group w-1/2 pr-2">
+                            <label for="margin-top">上</label>
+                            <input type="number" id="margin-top" min="0" max="100" value="20" class="w-full p-2 border rounded-md">
+                        </div>
+                        <div class="form-group w-1/2 pl-2">
+                            <label for="margin-bottom">下</label>
+                            <input type="number" id="margin-bottom" min="0" max="100" value="20" class="w-full p-2 border rounded-md">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group w-1/2 pr-2">
+                            <label for="margin-left">左</label>
+                            <input type="number" id="margin-left" min="0" max="100" value="20" class="w-full p-2 border rounded-md">
+                        </div>
+                        <div class="form-group w-1/2 pl-2">
+                            <label for="margin-right">右</label>
+                            <input type="number" id="margin-right" min="0" max="100" value="20" class="w-full p-2 border rounded-md">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="config-section">
+                    <button id="download-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-colors">
+                        下载SVG
+                    </button>
+                </div>
+            </aside>
+            
+            <!-- 中间预览区域 -->
+            <section class="preview-area">
+                <div class="preview-container">
+                    <h2>预览</h2>
+                    <div class="preview-wrapper">
+                        <svg id="preview-svg" width="794" height="1123"></svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 右侧搜索区域 -->
+            <aside class="search-panel">
+                <div class="config-section">
+                    <h2>诗歌搜索</h2>
+                    <div class="form-group">
+                        <label for="poem-search">搜索诗歌</label>
+                        <input type="text" id="poem-search" placeholder="例如：咏鹅" class="w-full p-2 border rounded-md">
+                    </div>
+                    <div class="form-group">
+                        <button id="search-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md transition-colors">
+                            搜索
+                        </button>
+                    </div>
+                    <div class="search-tips">
+                        <p class="text-sm text-gray-500">
+                            示例：咏鹅、静夜思、春晓等
+                        </p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
